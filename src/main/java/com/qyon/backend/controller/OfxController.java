@@ -2,7 +2,6 @@ package com.qyon.backend.controller;
 
 import java.io.File;
 import java.io.InputStream;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,7 @@ import net.sf.ofx4j.io.AggregateUnmarshaller;
 @RestController
 public class OfxController {
 
-     @PostMapping("/upload")
+    @PostMapping("/upload")
      public String fileUpload(@RequestParam("file") MultipartFile file) {
 
         AggregateUnmarshaller<RequestEnvelope> unmarshaller = new AggregateUnmarshaller<RequestEnvelope>(
@@ -31,6 +30,6 @@ public class OfxController {
             return e.getMessage();
         }
 
-        return "ok";
-    }
-}
+        return "ok";
+    }
+}   
