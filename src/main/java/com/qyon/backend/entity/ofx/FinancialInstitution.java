@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Entity
 public class FinancialInstitution {
     @Id
-    @OneToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

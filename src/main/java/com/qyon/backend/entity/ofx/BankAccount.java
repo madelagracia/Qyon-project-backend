@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 public class BankAccount {
     @Id
-    @OneToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

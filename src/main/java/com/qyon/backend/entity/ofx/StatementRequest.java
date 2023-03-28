@@ -5,15 +5,16 @@ import javax.persistence.*;
 @Entity
 public class StatementRequest {
     @Id
-    @OneToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @MapsId
+    @OneToOne(targetEntity = BankAccount.class)
     @JoinColumn (name ="bankAccount_id")
     private Integer bankAccount;
 
-    @OneToOne
+    @MapsId
+    @OneToOne(targetEntity = IncTransaction.class)
     @JoinColumn (name ="incTransaction_id")
     private Integer incTransaction;
 

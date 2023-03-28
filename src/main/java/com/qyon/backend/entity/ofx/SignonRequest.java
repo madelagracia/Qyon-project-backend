@@ -16,7 +16,8 @@ public class SignonRequest {
 
     private String language;
 
-    @OneToOne
+    @MapsId
+    @OneToOne(targetEntity = FinancialInstitution.class)
     @JoinColumn(name= "financialInstitution_id")
     private Integer financialInstitution;
 

@@ -5,11 +5,10 @@ import javax.persistence.*;
 @Entity
 public class BankRequestMessageSetV1 {
     @Id
-    @OneToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @OneToOne(targetEntity = StatementTransactionRequest.class)
     @JoinColumn (name ="statementTransactionRequest_id")
     private Integer statementTransactionRequest;
 

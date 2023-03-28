@@ -6,11 +6,11 @@ import javax.persistence.*;
 @Entity
 public class SignonRequestMessageSetV1 {
     @Id
-    @OneToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @MapsId
+    @OneToOne(targetEntity = SignonRequest.class)
     @JoinColumn(name= "signonRequest_id")
     private Integer signonRequest;
 

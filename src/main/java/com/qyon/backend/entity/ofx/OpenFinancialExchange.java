@@ -5,15 +5,16 @@ import javax.persistence.*;
 @Entity
 public class OpenFinancialExchange {
     @Id
-    @OneToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @MapsId
+    @OneToOne(targetEntity = BankRequestMessageSetV1.class)
     @JoinColumn (name ="bankRequestMessageSetV1t_id")
     private Integer bankRequestMessageSetV1;
 
-    @OneToOne
+    @MapsId
+    @OneToOne(targetEntity = SignonRequestMessageSetV1.class)
     @JoinColumn (name ="signonRequestMessageSetV1_id")
     private Integer signonRequestMessageSetV1;
 
