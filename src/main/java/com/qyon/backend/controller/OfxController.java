@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.qyon.backend.entity.ofx.OpenFinancialExchange;
+import com.qyon.backend.model.OfxModel;
 import com.qyon.backend.usecase.OfxUsecase;
 
 
@@ -34,7 +34,7 @@ public class OfxController {
     }
 
     @GetMapping("/findAll")
-    public List<OpenFinancialExchange> findAll() {
+    public List<OfxModel> findAll() {
         return usecase.findAll();
     }
 
@@ -48,7 +48,7 @@ public class OfxController {
     }
 
     @PostMapping("/findById/{Id}")
-    public ResponseEntity<OpenFinancialExchange> findById(Integer Id) {
+    public ResponseEntity<OfxModel> findById(Integer Id) {
         return usecase.findById(Id)
                 .map(record -> ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
