@@ -13,8 +13,7 @@ public class FinancialInstitution {
 
     private String fid;
 
-    public FinancialInstitution(Integer id, String org, String fid) {
-        this.id = id;
+    public FinancialInstitution(String org, String fid) {
         this.org = org;
         this.fid = fid;
     }

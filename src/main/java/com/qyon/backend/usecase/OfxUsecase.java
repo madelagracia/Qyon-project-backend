@@ -5,14 +5,23 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.qyon.backend.entity.OfxData;
+import com.qyon.backend.entity.ofx.BankRequestMessageSetV1;
+import com.qyon.backend.entity.ofx.FinancialInstitution;
+import com.qyon.backend.entity.ofx.OpenFinancialExchange;
 import com.qyon.backend.repository.OfxRepository;
 
 import net.sf.ofx4j.domain.data.RequestEnvelope;
+import net.sf.ofx4j.domain.data.RequestMessage;
+import net.sf.ofx4j.domain.data.RequestMessageSet;
+import net.sf.ofx4j.domain.data.ResponseEnvelope;
+import net.sf.ofx4j.domain.data.signon.SignonRequest;
+import net.sf.ofx4j.domain.data.signon.SignonRequestMessageSet;
 import net.sf.ofx4j.io.AggregateUnmarshaller;
 
 @Component
@@ -25,7 +34,7 @@ public class OfxUsecase {
         this.repository = repository;
     }
 
-    public List<OfxData> findAll() {
+    public List<OpenFinancialExchange> findAll() {
         return repository.findAll();
     }
 
@@ -33,7 +42,7 @@ public class OfxUsecase {
         repository.findById(Id);
     }
 
-    public Optional<OfxData> findById(Integer Id) {
+    public Optional<OpenFinancialExchange> findById(Integer Id) {
         return repository.findById(Id);
     }
 
@@ -47,11 +56,17 @@ public class OfxUsecase {
 
             File ofx = new File("C:\\ofx\\" + envelope.getUID() + ".ofx");
             file.transferTo(ofx);
+           
+            // FinancialInstitution financialInstitution = new FinancialInstitution( null, null)
 
-            OfxData data = new OfxData();
-            repository.save(data);
+          //  repository.findById(Id).map(ofxSaved ->{
+          //  if(ofxFile == null)
+          //  ofxFile = new OpenFinancialExchange(ofx);
+          //      repository.save(ofxFile);
+          //  })
+          //  return ofxSaved.getId().toString();
 
-            return data.getId().toString();
+          return "ok";
 
         } catch (Exception e) {
             return e.getMessage();

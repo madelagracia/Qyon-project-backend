@@ -18,12 +18,6 @@ public class OpenFinancialExchange {
     @JoinColumn (name ="signonRequestMessageSetV1_id")
     private Integer signonRequestMessageSetV1;
 
-    public OpenFinancialExchange(Integer id, Integer bankRequestMessageSetV1, Integer signonRequestMessageSetV1) {
-        this.id = id;
-        this.bankRequestMessageSetV1 = bankRequestMessageSetV1;
-        this.signonRequestMessageSetV1 = signonRequestMessageSetV1;
-    }
-
     public Integer getId() {
         return id;
     }

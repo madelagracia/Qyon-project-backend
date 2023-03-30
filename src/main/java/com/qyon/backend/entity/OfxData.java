@@ -1,9 +1,7 @@
 package com.qyon.backend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 @Entity
 public class OfxData {
@@ -11,7 +9,9 @@ public class OfxData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String financialId;
+    @Lob
+    private byte[] ofxData;
+
 
     public Integer getId() {
         return id;
@@ -21,12 +21,16 @@ public class OfxData {
         this.id = id;
     }
 
-    public String getFinancialId() {
-        return financialId;
+    public byte[] getOfxData() {
+        return ofxData;
     }
 
-    public void setFinancialId(String financialId) {
-        this.financialId = financialId;
+    public void setOfxData(byte[] ofxData) {
+        this.ofxData = ofxData;
     }
+
+   
+
+    
 
 }
